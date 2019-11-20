@@ -36,7 +36,6 @@ namespace __11._19_Student_Exercises
             exercises.Add( new Exercise("Nutshell","JavaScript"));
             exercises.Add( new Exercise("Tracking Student Exercises","C#"));
 
-            //
             Console.WriteLine("List of Instructors:\n");
             foreach(Instructor instructor in instructors )
             {
