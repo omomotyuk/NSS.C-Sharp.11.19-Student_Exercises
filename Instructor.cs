@@ -31,6 +31,12 @@ namespace __11._19_Student_Exercises
             Cohort = cohort;
         }
 
+        public void AssignTo(List<Student> students, string firstName, List<Exercise> exercises, string exercise )
+        {
+            //
+            students.Find(student => student.FirstName == firstName ).AddExercise(exercises,exercise);
+        }
+
         public void GetInfo()
         {
             Console.WriteLine(
