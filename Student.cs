@@ -27,5 +27,26 @@ namespace __11._19_Student_Exercises
             Cohort = cohort;
         }
 
+        public void AddExercise(List<Exercise> exercises, string practice )
+        {
+            Exercises.Add( exercises.Find(exercise => exercise.Name == practice) );
+        }
+
+        public void GetExercises()
+        {
+            if( Exercises.Count != 0 )
+            {
+                Console.Write($"Student {FirstName} {LastName} has following exercises:\n");
+                foreach(Exercise exercise in Exercises )
+                {
+                    Console.Write($"{exercise.Name} in {exercise.Language}\n");
+                }
+                //Console.Write("\n");
+            }
+            else
+            {
+                Console.Write($"Student {FirstName} {LastName} has not exercises.");
+            }
+        }
     }
 }

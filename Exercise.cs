@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace __11._19_Student_Exercises
 {
     public class Exercise
-    {        
+    {
         // You must define a type for representing an exercise in code. An exercise can be assigned to many students.
         /*
             Name of exercise
@@ -17,6 +17,5 @@ namespace __11._19_Student_Exercises
             Name = name;
             Language = language;
         }
-
     }
 }
