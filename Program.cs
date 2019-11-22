@@ -23,6 +23,7 @@ namespace __11._19_Student_Exercises
             students.Add(new Student("Bob", "Bobson", "Bob Bobson", "Cohort N2"));
             students.Add(new Student("Kim", "Kimson", "Kim Kimson", "Cohort N3"));
             students.Add(new Student("Rob", "Robson", "Rob Robson", "Cohort N3"));
+            students.Add(new Student("Yan", "Yanson", "Yan Yanson", "Cohort N3"));
 
             // Create 3, or more, cohorts
             cohorts.Add(new Cohort("Cohort N1"));
@@ -35,7 +36,7 @@ namespace __11._19_Student_Exercises
             exercises.Add(new Exercise("Nutshell", "JavaScript"));
             exercises.Add(new Exercise("Tracking Student Exercises", "C#"));
 
-            //Part1( instructors, students, cohorts, exercises );
+            Part1( instructors, students, cohorts, exercises );
             Part2(instructors, students, cohorts, exercises);
         }
 
@@ -76,6 +77,7 @@ namespace __11._19_Student_Exercises
                 Console.Write("\n");
             }
             */
+            Console.Write("\n");
         }
 
         static void Part2(List<Instructor> instructors, List<Student> students, List<Cohort> cohorts, List<Exercise> exercises)
@@ -105,7 +107,7 @@ namespace __11._19_Student_Exercises
             }
             Console.Write("\n");
 
-            // 2-3. List instructors in a particular cohort by using the Where() LINQ method.
+            // 2-3. List instructors in a particular cohort by using the Where() LINQ method
             Console.WriteLine("List of instructors in a particular cohort:");
 
             foreach (Cohort cohort in cohorts)
@@ -118,7 +120,7 @@ namespace __11._19_Student_Exercises
             }
             Console.Write("\n");
 
-            // 2-4. Sort the students by their last name.
+            // 2-4. Sort the students by their last name
             Console.WriteLine("List of students sorted by their last name:");
 
             foreach (Student student in students.OrderBy(person => person.LastName).ToList())
@@ -128,6 +130,14 @@ namespace __11._19_Student_Exercises
             Console.Write("\n");
 
             // 2-5. Display any students that aren't working on any exercises (Make sure one of your student instances don't have any exercises. Create a new student if you need to.)
+            Console.WriteLine("List of students haven't any exercises:");
+
+            foreach (Student student in students.Where(person => person.Exercises.Count == 0).ToList())
+            {
+                Console.WriteLine($"{student.LastName}, {student.FirstName} ({student.Cohort}) has {student.Exercises.Count} exercises.");
+            }
+            Console.Write("\n");
+
             // 2-6. Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
             // 2-7. How many students in each cohort?
         }
