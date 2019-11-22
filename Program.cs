@@ -36,7 +36,7 @@ namespace __11._19_Student_Exercises
             exercises.Add(new Exercise("Tracking Student Exercises", "C#"));
 
             //Part1( instructors, students, cohorts, exercises );
-            Part2( instructors, students, cohorts, exercises );
+            Part2(instructors, students, cohorts, exercises);
         }
 
         static void Assignment(
@@ -47,7 +47,7 @@ namespace __11._19_Student_Exercises
             instructors.Find(person => person.FirstName == instructor).AssignTo(students, student, exercises, exercise);
         }
 
-        static void Part1( List<Instructor> instructors,List<Student> students, List<Cohort> cohorts, List<Exercise> exercises )
+        static void Part1(List<Instructor> instructors, List<Student> students, List<Cohort> cohorts, List<Exercise> exercises)
         {
             Console.WriteLine("Part 1 of practice.\n");
 
@@ -78,27 +78,38 @@ namespace __11._19_Student_Exercises
             */
         }
 
-        static void Part2( List<Instructor> instructors,List<Student> students, List<Cohort> cohorts, List<Exercise> exercises )
+        static void Part2(List<Instructor> instructors, List<Student> students, List<Cohort> cohorts, List<Exercise> exercises)
         {
             Console.WriteLine("Part 2 of practice.\n");
 
             // 2-1. List exercises for the JavaScript language by using the Where() LINQ method
-            List<Exercise> language = exercises.Where( exercise => exercise.Language == "JavaScript" ).ToList();
+            Console.WriteLine("List of exercises for the JavaScript language:");
 
-            Console.WriteLine("List exercises for the JavaScript language:");
-            foreach( Exercise exercise in language )
+            List<Exercise> language = exercises.Where(exercise => exercise.Language == "JavaScript").ToList();
+            foreach (Exercise exercise in language)
             {
                 Console.WriteLine($"{exercise.Name} {exercise.Language}");
             }
+            Console.Write("\n");
 
-            /*
-                List students in a particular cohort by using the Where() LINQ method.
-                List instructors in a particular cohort by using the Where() LINQ method.
-                Sort the students by their last name.
-                Display any students that aren't working on any exercises (Make sure one of your student instances don't have any exercises. Create a new student if you need to.)
-                Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
-                How many students in each cohort?
-            */
+            // 2-2.List students in a particular cohort by using the Where() LINQ method
+            Console.WriteLine("List of students in a particular cohort:");
+
+            foreach (Cohort cohort in cohorts)
+            {
+                Console.WriteLine($"For {cohort.Name}:");
+                foreach (Student student in students.Where(person => person.Cohort == cohort.Name).ToList())
+                {
+                    Console.WriteLine($"{student.FirstName} {student.LastName} {student.Cohort}");
+                }
+            }
+            Console.Write("\n");
+
+            // 2-3. List instructors in a particular cohort by using the Where() LINQ method.
+            // 2-4. Sort the students by their last name.
+            // 2-5. Display any students that aren't working on any exercises (Make sure one of your student instances don't have any exercises. Create a new student if you need to.)
+            // 2-6. Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
+            // 2-7. How many students in each cohort?
         }
     }
 }
