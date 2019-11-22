@@ -100,7 +100,7 @@ namespace __11._19_Student_Exercises
                 Console.WriteLine($"For {cohort.Name}:");
                 foreach (Student student in students.Where(person => person.Cohort == cohort.Name).ToList())
                 {
-                    Console.WriteLine($"{student.FirstName} {student.LastName} {student.Cohort}");
+                    Console.WriteLine($"{student.FirstName} {student.LastName} ({student.Cohort})");
                 }
             }
             Console.Write("\n");
@@ -113,12 +113,20 @@ namespace __11._19_Student_Exercises
                 Console.WriteLine($"For {cohort.Name}:");
                 foreach (Instructor instructor in instructors.Where(person => person.Cohort == cohort.Name).ToList())
                 {
-                    Console.WriteLine($"{instructor.FirstName} {instructor.LastName} {instructor.Cohort}");
+                    Console.WriteLine($"{instructor.FirstName} {instructor.LastName} ({instructor.Cohort})");
                 }
             }
             Console.Write("\n");
 
             // 2-4. Sort the students by their last name.
+            Console.WriteLine("List of students sorted by their last name:");
+
+            foreach (Student student in students.OrderBy(person => person.LastName).ToList())
+            {
+                Console.WriteLine($"{student.LastName}, {student.FirstName} ({student.Cohort})");
+            }
+            Console.Write("\n");
+
             // 2-5. Display any students that aren't working on any exercises (Make sure one of your student instances don't have any exercises. Create a new student if you need to.)
             // 2-6. Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
             // 2-7. How many students in each cohort?
