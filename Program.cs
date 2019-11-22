@@ -36,7 +36,7 @@ namespace __11._19_Student_Exercises
             exercises.Add(new Exercise("Nutshell", "JavaScript"));
             exercises.Add(new Exercise("Tracking Student Exercises", "C#"));
 
-            Part1( instructors, students, cohorts, exercises );
+            Part1(instructors, students, cohorts, exercises);
             Part2(instructors, students, cohorts, exercises);
         }
 
@@ -139,6 +139,15 @@ namespace __11._19_Student_Exercises
             Console.Write("\n");
 
             // 2-6. Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
+            Console.WriteLine("Students, who are working on the most exercises:");
+
+            int maxNumberOfExercises = students.OrderByDescending(person => person.Exercises.Count).First().Exercises.Count;
+            foreach (Student student in students.Where(person => person.Exercises.Count == maxNumberOfExercises).ToList())
+            {
+                Console.WriteLine($"{student.LastName}, {student.FirstName} ({student.Cohort}) has {student.Exercises.Count} exercises.");
+            }
+            Console.Write("\n");
+
             // 2-7. How many students in each cohort?
         }
     }
