@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace __11._19_Student_Exercises
 {
@@ -34,6 +35,22 @@ namespace __11._19_Student_Exercises
             exercises.Add(new Exercise("Nutshell", "JavaScript"));
             exercises.Add(new Exercise("Tracking Student Exercises", "C#"));
 
+            //Part1( instructors, students, cohorts, exercises );
+            Part2( instructors, students, cohorts, exercises );
+        }
+
+        static void Assignment(
+            List<Instructor> instructors, string instructor,
+            List<Student> students, string student,
+            List<Exercise> exercises, string exercise)
+        {
+            instructors.Find(person => person.FirstName == instructor).AssignTo(students, student, exercises, exercise);
+        }
+
+        static void Part1( List<Instructor> instructors,List<Student> students, List<Cohort> cohorts, List<Exercise> exercises )
+        {
+            Console.WriteLine("Part 1 of practice.\n");
+
             // Have each instructor assign 2 exercises to each of the students.
             Assignment(instructors, "First", students, "Bil", exercises, "Daily Journal");
             Assignment(instructors, "First", students, "Bil", exercises, "Celebrity Tribute");
@@ -50,7 +67,6 @@ namespace __11._19_Student_Exercises
                 student.GetExercises();
                 Console.Write("\n");
             }
-
             /*
             // Print list of instructors
             Console.WriteLine("List of Instructors:\n");
@@ -62,12 +78,27 @@ namespace __11._19_Student_Exercises
             */
         }
 
-        static void Assignment(
-            List<Instructor> instructors, string instructor,
-            List<Student> students, string student,
-            List<Exercise> exercises, string exercise)
+        static void Part2( List<Instructor> instructors,List<Student> students, List<Cohort> cohorts, List<Exercise> exercises )
         {
-            instructors.Find(person => person.FirstName == instructor).AssignTo(students, student, exercises, exercise);
+            Console.WriteLine("Part 2 of practice.\n");
+
+            // 2-1. List exercises for the JavaScript language by using the Where() LINQ method
+            List<Exercise> language = exercises.Where( exercise => exercise.Language == "JavaScript" ).ToList();
+
+            Console.WriteLine("List exercises for the JavaScript language:");
+            foreach( Exercise exercise in language )
+            {
+                Console.WriteLine($"{exercise.Name} {exercise.Language}");
+            }
+
+            /*
+                List students in a particular cohort by using the Where() LINQ method.
+                List instructors in a particular cohort by using the Where() LINQ method.
+                Sort the students by their last name.
+                Display any students that aren't working on any exercises (Make sure one of your student instances don't have any exercises. Create a new student if you need to.)
+                Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
+                How many students in each cohort?
+            */
         }
     }
 }
