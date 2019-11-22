@@ -38,6 +38,16 @@ namespace __11._19_Student_Exercises
 
             Part1(instructors, students, cohorts, exercises);
             Part2(instructors, students, cohorts, exercises);
+            // Part 3
+            /*
+                Inheritance for Students and Instructors
+                Find any common properties and/or behaviors on students and instructors and create a new parent class for both of them to inherit from.
+
+                public class NSSPerson
+                {
+                // What common properties will go here?
+                }
+            */
         }
 
         static void Assignment(
