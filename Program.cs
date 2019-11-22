@@ -106,6 +106,18 @@ namespace __11._19_Student_Exercises
             Console.Write("\n");
 
             // 2-3. List instructors in a particular cohort by using the Where() LINQ method.
+            Console.WriteLine("List of instructors in a particular cohort:");
+
+            foreach (Cohort cohort in cohorts)
+            {
+                Console.WriteLine($"For {cohort.Name}:");
+                foreach (Instructor instructor in instructors.Where(person => person.Cohort == cohort.Name).ToList())
+                {
+                    Console.WriteLine($"{instructor.FirstName} {instructor.LastName} {instructor.Cohort}");
+                }
+            }
+            Console.Write("\n");
+
             // 2-4. Sort the students by their last name.
             // 2-5. Display any students that aren't working on any exercises (Make sure one of your student instances don't have any exercises. Create a new student if you need to.)
             // 2-6. Which student is working on the most exercises? Make sure one of your students has more exercises than the others.
