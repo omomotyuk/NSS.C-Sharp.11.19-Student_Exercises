@@ -149,6 +149,16 @@ namespace __11._19_Student_Exercises
             Console.Write("\n");
 
             // 2-7. How many students in each cohort?
+            Console.WriteLine("Number of students in each cohort:");
+
+            var eachCohort = students
+            .GroupBy( student => student.Cohort );
+
+            foreach ( var cohort in eachCohort )
+            {
+                Console.WriteLine($"{cohort.Key} has {cohort.Count()} students.");
+            }
+           Console.Write("\n");
         }
     }
 }
